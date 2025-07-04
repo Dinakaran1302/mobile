@@ -48,8 +48,8 @@ List<Mobile_entity> between();
 @Query(value="select e from Mobile_entity e where e.price between ?1 and ?2")
 List<Mobile_entity> findd(int a, int b);
 
-@Query(value="select e from Mobile_entity e where e.brand=?1")
-List<Mobile_entity> str(String h);
+@Query(value="select e from Mobile_entity e where e.brand=h ")
+List<Mobile_entity> str(@Param ("h") String h);
 
 @Query("select f from Mobile_entity f where f.price=(select max(f.price) from Mobile_entity f where f.price<(select max(f.price)from Mobile_entity f))") 
 List<Mobile_entity> sub();
